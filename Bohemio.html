@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bohemio BiciCoffee | Cafe de especialidad</title>
+	<meta name="description" content="Cafe de especialidad servido desde una bicicleta. Bohemio BiciCoffee.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<style>
+		:root { --cream:#f7efe3; --paper:#fffaf2; --ink:#29201c; --muted:#6d5d53; --green:#53683b; --deep:#2e402a; --rust:#bd6242; --gold:#d7b27d; --line:#2e211c20; }
+		* { box-sizing:border-box; }
+		html { scroll-behavior:smooth; }
+		body { margin:0; color:var(--ink); background:linear-gradient(145deg,#fbf5ed,var(--cream)); font:16px/1.6 Manrope,sans-serif; }
+		a { color:inherit; text-decoration:none; }
+		img { display:block; max-width:100%; }
+		.wrap { width:min(1160px,calc(100% - 32px)); margin:auto; }
+		header { position:sticky; top:0; z-index:5; background:#f7efe3dd; backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+		.nav { min-height:78px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
+		.brand { display:flex; align-items:center; gap:11px; font-size:.86rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+		.mark { width:40px; height:40px; display:grid; place-items:center; border-radius:50%; color:white; background:linear-gradient(135deg,var(--green),var(--gold)); box-shadow:inset 0 0 0 4px #ffffff55; }
+		.mark::after { content:'☕'; font-size:1.1rem; }
+		nav { display:flex; gap:25px; color:var(--muted); font-size:.9rem; font-weight:700; }
+		nav a:hover { color:var(--rust); }
+		.nav-button { padding:11px 18px; border:1px solid var(--line); border-radius:99px; color:var(--ink); background:#ffffff55; }
+		section { padding:100px 0; }
+		.hero { padding:65px 0 45px; overflow:hidden; background:radial-gradient(circle at 90% 20%,#d7b27d42,transparent 30%); }
+		.hero-grid { display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:48px; }
+		.eyebrow { margin-bottom:15px; color:var(--green); font-size:.73rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+		h1,h2,h3 { margin-top:0; }
+		h1,h2 { font-family:'Cormorant Garamond',serif; font-weight:600; letter-spacing:-.045em; line-height:.88; }
+		h1 { margin-bottom:22px; font-size:clamp(4.3rem,8vw,8.5rem); }
+		h1 em { color:var(--rust); font-style:normal; }
+		.hero p { max-width:570px; margin-bottom:28px; color:var(--muted); font-size:1.1rem; }
+		.actions { display:flex; flex-wrap:wrap; gap:13px; margin-bottom:32px; }
+		.button { display:inline-flex; justify-content:center; padding:15px 25px; border:1px solid var(--line); border-radius:99px; font-size:.8rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; transition:.2s; }
+		.button:hover { transform:translateY(-2px); }
+		.primary { color:white; background:var(--rust); border-color:var(--rust); box-shadow:0 14px 25px #bd624233; }
+		.stats { display:flex; gap:30px; padding-top:17px; border-top:1px solid var(--line); }
+		.stats strong { display:block; color:var(--deep); font-size:1.7rem; }
+		.stats span { color:var(--muted); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; }
+		.hero-photo { position:relative; min-height:600px; }
+		.hero-photo img { width:100%; height:600px; object-fit:cover; border-radius:35px 35px 120px 35px; box-shadow:0 25px 55px #2e211c2b; }
+		.note { position:absolute; max-width:210px; padding:16px; border:1px solid var(--line); border-radius:20px; background:#fffaf2ed; box-shadow:0 12px 28px #2e211c18; }
+		.note small { display:block; color:var(--muted); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; }
+		.note strong { display:block; font-size:1.35rem; }
+		.note.one { left:-25px; bottom:85px; }
+		.note.two { right:15px; bottom:15px; }
+		.split { display:grid; grid-template-columns:.9fr 1.1fr; align-items:center; gap:50px; background:#ffffff36; border-block:1px solid var(--line); }
+		.split-photo { padding:18px; border:1px solid var(--line); border-radius:30px; background:#ffffff88; }
+		.split-photo img { width:100%; height:490px; object-fit:cover; border-radius:23px; }
+		h2 { margin-bottom:20px; font-size:clamp(2.8rem,5vw,5rem); }
+		.copy { max-width:640px; color:var(--muted); font-size:1.05rem; }
+		ul { padding:0; list-style:none; color:var(--muted); }
+		li { margin:15px 0; }
+		li::before { content:'✦'; margin-right:12px; color:var(--rust); }
+		.quote { margin-top:25px; padding-top:20px; border-top:1px solid var(--line); font:2.3rem/1.05 'Cormorant Garamond',serif; }
+		.menu-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:32px; }
+		.card { overflow:hidden; border:1px solid var(--line); border-radius:25px; background:#ffffff77; box-shadow:0 10px 25px #2e211c0e; }
+		.card img { width:100%; height:205px; object-fit:cover; }
+		.card-body { padding:17px; }
+		.tag { color:var(--rust); font-size:.7rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+		.card h3 { margin:10px 0 5px; font-size:1.3rem; }
+		.card p { min-height:52px; margin:0 0 13px; color:var(--muted); font-size:.9rem; }
+		.price { display:flex; justify-content:space-between; padding-top:12px; border-top:1px solid var(--line); color:var(--deep); font-weight:800; }
+		.ritual { background:linear-gradient(#efe2d4aa,#ffffff55); }
+		.steps { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:32px; }
+		.step { min-height:210px; padding:20px; border:1px solid var(--line); border-radius:22px; background:#ffffff88; }
+		.number { width:40px; height:40px; display:grid; place-items:center; margin-bottom:16px; border-radius:50%; color:white; background:linear-gradient(135deg,var(--green),var(--gold)); font-weight:800; }
+		.step h3 { margin-bottom:8px; font-size:1.1rem; }
+		.step p { margin:0; color:var(--muted); font-size:.92rem; }
+		.cta { display:flex; align-items:center; justify-content:space-between; gap:25px; padding:30px; border-radius:28px; color:white; background:linear-gradient(135deg,var(--green),var(--deep)); box-shadow:0 18px 35px #31422b2b; }
+		.cta h2 { margin-bottom:7px; font-size:clamp(2.4rem,4vw,3.7rem); }
+		.cta p { margin:0; color:#ffffffc7; }
+		footer { padding:28px 0; color:#ffffffbb; background:#201a17; }
+		.footer { display:flex; justify-content:space-between; gap:20px; align-items:center; }
+		@media(max-width:950px) { .hero-grid,.split { grid-template-columns:1fr; } .menu-grid,.steps { grid-template-columns:repeat(2,1fr); } .hero-photo { min-height:450px; } .hero-photo img { height:450px; } .cta { align-items:flex-start; flex-direction:column; } }
+		@media(max-width:650px) { nav { display:none; } section { padding:75px 0; } .menu-grid,.steps { grid-template-columns:1fr; } .actions { flex-direction:column; } .button { width:100%; } .hero-photo { min-height:390px; } .hero-photo img { height:390px; } .note.one { left:5px; bottom:45px; } .note.two { right:5px; bottom:-13px; } .stats { gap:15px; flex-wrap:wrap; } .footer { align-items:flex-start; flex-direction:column; } }
+	</style>
+</head>
+<body>
+	<header>
+		<div class="wrap nav">
+			<a class="brand" href="#inicio"><span class="mark" aria-hidden="true"></span>Bohemio BiciCoffee</a>
+			<nav aria-label="Navegacion principal">
+				<a href="#historia">Historia</a><a href="#menu">Menu</a><a href="#ritual">Ritual</a><a class="nav-button" href="#contacto">Reserva</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="inicio">
+		<section class="hero">
+			<div class="wrap hero-grid">
+				<div>
+					<div class="eyebrow">Cafe de especialidad en movimiento</div>
+					<h1>Bohemio <em>Bici</em>Coffee</h1>
+					<p>Una bicicleta, un cajon de madera convertido en mesa y cafe de especialidad preparado para disfrutar la ciudad sin prisa.</p>
+					<div class="actions"><a class="button primary" href="#menu">Ver menu</a><a class="button" href="#contacto">Sigue la ruta</a></div>
+					<div class="stats"><div><strong>12</strong><span>origenes</span></div><div><strong>4</strong><span>rutas semanales</span></div><div><strong>1</strong><span>mesa viajera</span></div></div>
+				</div>
+				<div class="hero-photo">
+					<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=85" alt="Cafe servido junto a una bicicleta">
+					<div class="note one"><small>Metodo favorito</small><strong>V60</strong><span>de origen unico</span></div>
+					<div class="note two"><small>El ritmo</small><strong>Slow coffee</strong><span>para tomarse sin prisa</span></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="split" id="historia">
+			<div class="wrap split-photo"><img src="https://images.unsplash.com/photo-1498804103079-a4f7db9737d1?auto=format&fit=crop&w=900&q=85" alt="Cafe y mesa de madera en un ambiente bohemio"></div>
+			<div class="wrap">
+				<div class="eyebrow">La bici es la mesa</div>
+				<h2>Cafe para vivir la calle con calma.</h2>
+				<p class="copy">Bohemio BiciCoffee lleva el cafe de especialidad a plazas, barrios, paseos y encuentros improvisados. El cajon de madera sobre la bicicleta se transforma en una mesa pequena donde cada taza invita a detenerse.</p>
+				<ul><li>Granos seleccionados y preparados con intencion.</li><li>Una experiencia cercana, sensorial y hecha para compartir.</li><li>Un concepto urbano con alma artesanal y bohemia.</li></ul>
+				<div class="quote">“Para tomar cafe sin correr, como si el tiempo tambien se sirviera en la taza.”</div>
+			</div>
+		</section>
+
+		<section id="menu"><div class="wrap"><div class="eyebrow">Menu</div><h2>Lo que se sirve al paso.</h2><p class="copy">Una seleccion pequena y honesta para acompanarte en una buena conversacion.</p>
+			<div class="menu-grid">
+				<article class="card"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=700&q=85" alt="Cafe espresso"><div class="card-body"><span class="tag">Especial</span><h3>Espresso</h3><p>Notas de cacao, citrico y dulzor redondo.</p><div class="price"><span>$6.000</span><span>Shot</span></div></div></article>
+				<article class="card"><img src="https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?auto=format&fit=crop&w=700&q=85" alt="Cafe filtrado V60"><div class="card-body"><span class="tag">Filtro</span><h3>V60</h3><p>Floral, brillante y limpio.</p><div class="price"><span>$9.000</span><span>150 ml</span></div></div></article>
+				<article class="card"><img src="https://images.unsplash.com/photo-1517638851339-a711cfcf3279?auto=format&fit=crop&w=700&q=85" alt="Cafe frio cold brew"><div class="card-body"><span class="tag">Frio</span><h3>Cold Brew</h3><p>Suave, refrescante y con miel.</p><div class="price"><span>$11.000</span><span>250 ml</span></div></div></article>
+				<article class="card"><img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=700&q=85" alt="Pan artesanal para acompanear el cafe"><div class="card-body"><span class="tag">Brunch</span><h3>Pan artesanal</h3><p>El companero perfecto para la tarde.</p><div class="price"><span>$13.000</span><span>Combo</span></div></div></article>
+			</div>
+		</div></section>
+
+		<section class="ritual" id="ritual"><div class="wrap"><div class="eyebrow">Ritual</div><h2>Asi se vive una tarde con Bohemio.</h2><div class="steps"><article class="step"><div class="number">1</div><h3>La ruta</h3><p>Barrios tranquilos, plazas verdes y rincones con buena energia.</p></article><article class="step"><div class="number">2</div><h3>La molienda</h3><p>Cada taza se prepara para resaltar la dulzura del grano.</p></article><article class="step"><div class="number">3</div><h3>La mesa</h3><p>El cajon de madera se convierte en un espacio para conversar.</p></article><article class="step"><div class="number">4</div><h3>La pausa</h3><p>Se sirve sin apuro, como un pequeno acto de presencia.</p></article></div></div></section>
+
+		<section id="contacto"><div class="wrap"><div class="cta"><div><div class="eyebrow" style="color:#ffffffb5">Sigue la ruta</div><h2>Una taza, una vuelta y un buen momento.</h2><p>Reserva el servicio para tu evento o encuentra nuestra proxima parada.</p></div><a class="button primary" href="mailto:bohemio.bicicoffee@gmail.com">Reservar</a></div></div></section>
+	</main>
+
+	<footer><div class="wrap footer"><div class="brand"><span class="mark" aria-hidden="true"></span>Bohemio BiciCoffee</div><span> Cafe de especialidad sobre ruedas</span></div></footer>
+</body>
+</html>
